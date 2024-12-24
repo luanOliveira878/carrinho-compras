@@ -9,10 +9,16 @@ function adicionar(){
     // capturar os elementos da interface do usuário e separar strings e valores
 
     let produto = document.getElementById('produto').value;
-    let quantidade = document.getElementById('quantidade').value;
+    let quantidade = parseInt(document.getElementById('quantidade').value);
     let nomeProduto = produto.split('-')[0];
     let valorProduto = parseInt(produto.split('R$')[1]);
     let preco = quantidade * valorProduto;
+    
+    // criar validações de quantidade**************************************************************************
+    if(quantidade <= 0 || isNaN(quantidade)){
+      alert('INCLUA UMA QUANTIDADE VÁLIDA!');
+      return;
+    }
 
 
     // inserindo itens no carrinho
@@ -36,7 +42,9 @@ function adicionar(){
     // zerando quantidade no campo ao adicionar item
 
     quantidade = document.getElementById('quantidade').value = '';
-    
+
+
+    // criar possibilidade de exclusão dos itens direto na lista******************************************************************
 }
 
 
